@@ -24,6 +24,10 @@ function SetEnum () {
     if (pins.digitalReadPin(DigitalPin.P14) == 0) {
         _enum += 2048
     }
+    // home(guide)
+    if (pins.digitalReadPin(DigitalPin.P15) == 0) {
+        _enum += 4096
+    }
     // L stick (L3)
     if (pins.digitalReadPin(DigitalPin.P2) == 0) {
         _enum += 8192
@@ -32,13 +36,13 @@ function SetEnum () {
 let _enum = 0
 led.enable(false)
 pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
-pins.setPull(DigitalPin.P3, PinPullMode.PullUp)
-pins.setPull(DigitalPin.P4, PinPullMode.PullUp)
-pins.setPull(DigitalPin.P5, PinPullMode.PullUp)
-pins.setPull(DigitalPin.P6, PinPullMode.PullUp)
-pins.setPull(DigitalPin.P7, PinPullMode.PullUp)
-pins.setPull(DigitalPin.P8, PinPullMode.PullUp)
-serial.redirectToUSB()
+pins.setPull(DigitalPin.P10, PinPullMode.PullUp)
+pins.setPull(DigitalPin.P11, PinPullMode.PullUp)
+pins.setPull(DigitalPin.P12, PinPullMode.PullUp)
+pins.setPull(DigitalPin.P13, PinPullMode.PullUp)
+pins.setPull(DigitalPin.P14, PinPullMode.PullUp)
+pins.setPull(DigitalPin.P15, PinPullMode.PullUp)
+pins.setPull(DigitalPin.P16, PinPullMode.PullUp)
 gamepad.startGamepadService()
 basic.forever(function () {
     while (gamepad.isEnabled()) {
